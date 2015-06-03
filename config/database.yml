@@ -85,4 +85,3 @@ production:
   <<: *default
   database: mood_tracker_production
   username: mood_tracker
-  password: <%= ENV['MOOD_TRACKER_DATABASE_PASSWORD'] %>
