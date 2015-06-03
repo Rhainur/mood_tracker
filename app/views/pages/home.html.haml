@@ -1,0 +1,4 @@
+.text-center
+  %h3 What's your mood like right now?
+  - (1..10).each do |i|
+    %button{ class: "button-mood-#{i}" }= i
