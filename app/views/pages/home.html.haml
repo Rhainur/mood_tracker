@@ -1,4 +1,10 @@
-.text-center
-  %h3 What's your mood like right now?
-  - (1..10).each do |i|
-    = button_to i, record_mood_path(mood: i), { form_class: "button-mood-#{i}" }
+.container
+  .row
+    .twelve.columns
+      .text-center
+        %h3 What's your mood like right now?
+        - (1..10).each do |i|
+          = button_to i, record_mood_path(mood: i), { form_class: 'button-mood' }
+
+%div{ style: 'width: 95%; height: 700px; margin: 0 auto;'}
+  = line_chart current_user.moods.group_by_day(:created_at).average(:mood), min: 0, max: 11, height: '450px', colors: ['#555555'],  library: { vAxis: { ticks: [1,2,3,4,5,6,7,8,9,10]}, pointSize: 3, curveType: 'none', theme: 'maximized'}
