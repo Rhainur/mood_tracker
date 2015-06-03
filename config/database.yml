@@ -85,3 +85,4 @@ production:
   <<: *default
   database: mood_tracker_production
   username: mood_tracker
+  password: <%= Rails.application.secrets[:database][:password] %>
